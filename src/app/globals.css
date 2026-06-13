@@ -1,26 +1,193 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---------- Design tokens ---------- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #faf9f6;
+  --foreground: #1c2430;
+  --card: #ffffff;
+  --card-foreground: #1c2430;
+  --border: #e4e0d6;
+  --input: #f3f0e9;
+  --muted: #cfc9bc;
+  --muted-foreground: #67696b;
+  --primary: #1d3a5f;
+  --primary-foreground: #ffffff;
+  --accent: #8a6d3b;
+  --accent-foreground: #ffffff;
+  --accent-glow: #b3905a;
+  --destructive: #b91c1c;
+}
+
+.dark {
+  --background: #0c1220;
+  --foreground: #e8e6e1;
+  --card: #131c2e;
+  --card-foreground: #e8e6e1;
+  --border: #263247;
+  --input: #101828;
+  --muted: #44506a;
+  --muted-foreground: #9aa4b5;
+  --primary: #2e5380;
+  --primary-foreground: #ffffff;
+  --accent: #c9a368;
+  --accent-foreground: #131c2e;
+  --accent-glow: #d4b076;
+  --destructive: #f87171;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-glow: var(--accent-glow);
+  --color-destructive: var(--destructive);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --animate-fade-in: fadeIn 0.6s ease-out both;
+  --animate-slide-in-left: slideInLeft 0.7s ease-out both;
+  --animate-slide-in-right: slideInRight 0.7s ease-out both;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-breathing: breathing 4s ease-in-out infinite;
+  --animate-marquee: marquee 30s linear infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ---------- Keyframes ---------- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes breathing {
+  0%,
+  100% {
+    box-shadow: 0 0 24px 0 color-mix(in srgb, var(--accent) 25%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 48px 6px color-mix(in srgb, var(--accent) 45%, transparent);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ---------- Base ---------- */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
 }
+
+/* World map backdrop: accent-tinted map silhouette that fades out toward the edges */
+.world-map-bg {
+  background-color: color-mix(in srgb, var(--accent) 6%, transparent);
+  mask-image: url("/assets/world-map.svg"),
+    radial-gradient(ellipse 80% 75% at 50% 45%, black 30%, transparent 82%);
+  mask-size: cover, cover;
+  mask-position: center, center;
+  mask-repeat: no-repeat;
+  mask-composite: intersect;
+}
+
+.dark .world-map-bg {
+  background-color: color-mix(in srgb, var(--accent) 9%, transparent);
+}
+
+/* Floating action buttons: expanding ripple rings.
+   No position rule here: the buttons are position-fixed already. */
+.fab-ripple::before,
+.fab-ripple::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 9999px;
+  border: 2px solid var(--ripple-color, var(--accent));
+  opacity: 0;
+  animation: ripple 2.4s linear infinite;
+}
+
+.fab-ripple::after {
+  animation-delay: 1.2s;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(2.1);
+    opacity: 0;
+  }
+}
+
+/* Offset anchor targets below the sticky header */
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
