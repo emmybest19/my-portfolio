@@ -19,7 +19,7 @@ const navLinks = [
   { label: "Skills", href: "/#skills", section: "skills" },
   { label: "Resume", href: "/#resume", section: "resume" },
   { label: "Education", href: "/#education", section: "education" },
-  { label: "Blog", href: "/#blog", section: "blog" },
+  // { label: "Blog", href: "/#blog", section: "blog" },
   { label: "Contact", href: "/#contact", section: "contact" },
 ];
 

@@ -16,7 +16,7 @@ export default function HomePage() {
     <>
       <Hero />
       <TrustedBy />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <About />
       <Projects />
       <Experience />
@@ -24,7 +24,7 @@ export default function HomePage() {
       <Resume />
       <Education />
       <Achievements />
-      <Blog />
+      {/* <Blog /> */}
       <Contact />
     </>
   );
