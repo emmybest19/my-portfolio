@@ -3,9 +3,9 @@ const clients = [
   "Zeta Technologies",
   "Upsywave Tech Company Ltd",
   "Toac International",
-  "Blingg",
+  // "Blingg",
   "Ebringgs Technologies",
-  "Tasteatfoods",
+  // "Tasteatfoods",
 ];
 
 export function TrustedBy() {
