@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ebri-emmanuel-portfolio.vercel.app"),
+  metadataBase: new URL("https://emmanuel-ebri.vercel.app/"),
   title: {
     default: "Emmanuel Ebri | Software Engineer",
     template: "%s | Emmanuel Ebri",
