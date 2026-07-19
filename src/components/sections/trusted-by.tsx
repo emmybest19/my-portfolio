@@ -1,4 +1,4 @@
-// Employers and project clients. TODO: replace text marks with real client logos when available
+
 const clients = [
   "Zeta Technologies",
   "Upsywave Tech Company Ltd",
