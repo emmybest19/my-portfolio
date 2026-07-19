@@ -15,8 +15,9 @@ const resumes = [
     title: "Fullstack Software Developer",
     file: "/files/Emmanuel_Ebri_Resume.pdf",
     pages: [
-      "/assets/resume/fullstack-page-1.png",
-      "/assets/resume/fullstack-page-2.png",
+      "/assets/resume/full_1.jpg",
+      "/assets/resume/full_2.jpg",
+      "/assets/resume/full_3.jpg",
     ],
   },
   {
