@@ -24,7 +24,7 @@ export const experience: ExperienceItem[] = [
     id: 1,
     title: "Frontend Developer",
     org: "Toac Inc",
-    period: "Nov 2025 - Apr 2026",
+    period: "Nov 2025 - Present",
     type: "Contract",
     challenge:
       "A distributed Agile team, 8+ feature modules in flight and 30+ Figma designs that had to land pixel-accurate on every browser and screen size.",
