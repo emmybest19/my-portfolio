@@ -24,7 +24,7 @@ export default function HomePage() {
       <Resume />
       <Education />
       <Achievements />
-      {/* <Blog /> */}
+      <Blog />
       <Contact />
     </>
   );

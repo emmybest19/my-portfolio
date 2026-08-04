@@ -19,7 +19,7 @@ const navLinks = [
   { label: "Skills", href: "/#skills", section: "skills" },
   { label: "Resume", href: "/#resume", section: "resume" },
   { label: "Education", href: "/#education", section: "education" },
-  // { label: "Blog", href: "/#blog", section: "blog" },
+  { label: "Blog", href: "/#blog", section: "blog" },
   { label: "Contact", href: "/#contact", section: "contact" },
 ];
 
@@ -53,10 +53,12 @@ export function Header() {
     return () => observer.disconnect();
   }, [pathname]);
 
-  const isActive = (section: string) =>
-    pathname === "/"
-      ? activeSection === section
-      : section === "projects" && pathname.startsWith("/projects");
+  const isActive = (section: string) => {
+    if (pathname === "/") return activeSection === section;
+    if (section === "projects") return pathname.startsWith("/projects");
+    if (section === "blog") return pathname.startsWith("/blog");
+    return false;
+  };
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">

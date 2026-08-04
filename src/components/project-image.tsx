@@ -8,9 +8,17 @@ import "yet-another-react-lightbox/styles.css";
 type ProjectImageProps = {
   src: string;
   alt: string;
+  /** Intrinsic size of the source file. Defaults to a 16:9 screenshot. */
+  width?: number;
+  height?: number;
 };
 
-export function ProjectImage({ src, alt }: ProjectImageProps) {
+export function ProjectImage({
+  src,
+  alt,
+  width = 1280,
+  height = 720,
+}: ProjectImageProps) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -24,8 +32,8 @@ export function ProjectImage({ src, alt }: ProjectImageProps) {
         <Image
           src={src}
           alt={alt}
-          width={1280}
-          height={720}
+          width={width}
+          height={height}
           className="h-auto w-full object-cover transition-transform duration-500 hover:scale-[1.02]"
         />
       </button>
