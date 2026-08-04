@@ -2,8 +2,9 @@
   "redirects": [
     {
       "source": "/(.*)",
+      "has": [{ "type": "host", "value": "emmanuelebri.dev" }],
       "destination": "https://www.emmanuelebri.dev/$1",
-      "permanent": true
+      "permanent": false
     }
   ]
 }
