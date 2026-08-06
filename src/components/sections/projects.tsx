@@ -6,7 +6,12 @@ import Link from "next/link";
 import { ArrowUpRight, TrendingUp } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import { SectionHeading } from "@/components/section-heading";
-import { projectCategories, projects, type Project } from "@/data/projects";
+import {
+  projectCategories,
+  projects,
+  type CategoryFilter,
+  type Project,
+} from "@/data/projects";
 
 const tabs = ["Challenge", "Process", "Victory"] as const;
 type Tab = (typeof tabs)[number];
@@ -140,7 +145,7 @@ function ProjectCard({ project }: { project: Project }) {
 }
 
 export function Projects() {
-  const [category, setCategory] = useState("All");
+  const [category, setCategory] = useState<CategoryFilter>("All");
 
   const visible =
     category === "All"

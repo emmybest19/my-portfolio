@@ -1,7 +1,27 @@
+/**
+ * The canonical category list. `Project.category` is typed against it, so a
+ * typo ("Health tech") is a compile error rather than a project that quietly
+ * gets its own filter pill and appears under nothing else.
+ */
+export const CATEGORIES = [
+  "Health Tech",
+  "E-commerce",
+  "Education",
+  "Fintech",
+  "E-learning",
+  "Personal Project",
+] as const;
+
+export type ProjectCategory = (typeof CATEGORIES)[number];
+
+/** What the filter row renders: the categories plus the "show everything" option. */
+export const projectCategories = ["All", ...CATEGORIES] as const;
+export type CategoryFilter = (typeof projectCategories)[number];
+
 export type Project = {
   id: string;
   title: string;
-  category: string;
+  category: ProjectCategory;
   description: string;
   shortDescription: string;
   /** Outcome line shown as the highlight badge on the project card. */
@@ -209,13 +229,9 @@ export const projects: Project[] = [
       "A full case study page for every project, generated from typed data",
       "Navy and bronze theme with light and dark modes built as equals",
       "Scroll-aware navigation that highlights the section you are reading",
-      "Continuous testimonial marquee that pauses on hover",
+      "Long-form engineering articles, each with its own generated article page",
       "Contact form wired to EmailJS, no backend required",
     ],
   },
 ];
 
-export const projectCategories = [
-  "All",
-  ...Array.from(new Set(projects.map((p) => p.category))),
-];

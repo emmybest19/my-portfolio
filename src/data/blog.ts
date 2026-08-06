@@ -1,10 +1,13 @@
+import { parseBlogBody, type BlogBlock } from "@/lib/blog-body";
+
 /**
  * Articles written for the E-Bringgs engineering blog.
  *
- * `body` uses a tiny markup handled by `renderBlogBody` in
- * `src/app/blog/[slug]/page.tsx`: blocks are separated by a blank line,
- * `## ` marks a section heading, `> ` a pull quote, and `[figure]` is where
- * the article's code screenshot goes.
+ * Bodies are authored as one string in the markup documented in
+ * `src/lib/blog-body.ts`, then parsed into `BlogBlock[]` at build. Malformed
+ * markup fails the build rather than rendering as plain text — so the string
+ * below is the authoring format, and `BlogPost.body` is the checked structure
+ * the renderer consumes.
  *
  * `externalUrl` is the canonical post on the live blog. Set it to the URL and a
  * "Read on the live blog" button appears on the article page; leave it `null`
@@ -26,11 +29,14 @@ export type BlogPost = {
     height: number;
   };
   externalUrl: string | null;
-  body: string;
+  body: BlogBlock[];
   signoff: string;
 };
 
-export const posts: BlogPost[] = [
+/** A post as authored: identical to `BlogPost`, but `body` is still markup. */
+type RawPost = Omit<BlogPost, "body"> & { body: string };
+
+const rawPosts: RawPost[] = [
   {
     slug: "reviewing-code-you-did-not-write",
     title: "Reviewing Code You Did Not Write",
@@ -818,6 +824,11 @@ Those five hold whether you are integrating Stripe, Paystack, Flutterwave or som
     signoff: "I build fintech products at E-Bringgs Technologies, in naira, over an integration written by hand on purpose.",
   },
 ];
+
+export const posts: BlogPost[] = rawPosts.map((post) => ({
+  ...post,
+  body: parseBlogBody(post.body, post.slug),
+}));
 
 export const getPost = (slug: string) =>
   posts.find((post) => post.slug === slug);

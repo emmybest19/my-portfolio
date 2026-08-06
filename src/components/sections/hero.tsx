@@ -26,12 +26,7 @@ export function Hero() {
             {site.title}
           </h2>
           <p className="mt-5 max-w-xl text-muted-foreground">{site.tagline}</p>
-          <p className="mt-4 max-w-xl text-muted-foreground">
-            In 2+ years I&apos;ve built telemedicine platforms, school
-            portals, online stores and fintech dashboards. Every one of them
-            gets the same treatment: secure APIs, clean architecture and
-            interfaces that feel obvious the first time you use them.
-          </p>
+          <p className="mt-4 max-w-xl text-muted-foreground">{site.intro}</p>
 
           <div className="mt-8 flex flex-wrap gap-3">
             <Link

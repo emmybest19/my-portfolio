@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight, Clock } from "lucide-react";
 import { getPost, posts, type BlogPost } from "@/data/blog";
+import { assertNever } from "@/lib/assert-never";
 import { ProjectImage } from "@/components/project-image";
 
 type Props = {
@@ -31,54 +32,59 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 /**
- * Renders the mini markup described in `src/data/blog.ts`: blank-line separated
- * blocks, `## ` headings, `> ` pull quotes and a single `[figure]` placeholder.
+ * Renders the parsed body. Every block was validated at build by
+ * `parseBlogBody`, so this only maps a known shape onto markup — and the
+ * `assertNever` default means adding a block kind without handling it here
+ * fails to compile.
  */
 function BlogBody({ post }: { post: BlogPost }) {
-  return post.body.split(/\n\s*\n/).map((block, index) => {
-    if (block === "[figure]") {
-      return (
-        <figure key={index} className="my-10">
-          <ProjectImage
-            src={post.figure.src}
-            alt={post.figure.alt}
-            width={post.figure.width}
-            height={post.figure.height}
-          />
-          <figcaption className="mt-3 text-center text-sm text-muted-foreground">
-            {post.figure.caption}
-          </figcaption>
-        </figure>
-      );
-    }
+  return post.body.map((block, index) => {
+    switch (block.kind) {
+      case "figure":
+        return (
+          <figure key={index} className="my-10">
+            <ProjectImage
+              src={post.figure.src}
+              alt={post.figure.alt}
+              width={post.figure.width}
+              height={post.figure.height}
+            />
+            <figcaption className="mt-3 text-center text-sm text-muted-foreground">
+              {post.figure.caption}
+            </figcaption>
+          </figure>
+        );
 
-    if (block.startsWith("## ")) {
-      return (
-        <h2
-          key={index}
-          className="mt-12 mb-4 text-2xl font-bold tracking-tight sm:text-3xl"
-        >
-          {block.slice(3)}
-        </h2>
-      );
-    }
+      case "heading":
+        return (
+          <h2
+            key={index}
+            className="mt-12 mb-4 text-2xl font-bold tracking-tight sm:text-3xl"
+          >
+            {block.text}
+          </h2>
+        );
 
-    if (block.startsWith("> ")) {
-      return (
-        <blockquote
-          key={index}
-          className="my-8 border-l-4 border-accent pl-5 text-lg font-medium italic leading-relaxed text-foreground"
-        >
-          {block.slice(2)}
-        </blockquote>
-      );
-    }
+      case "quote":
+        return (
+          <blockquote
+            key={index}
+            className="my-8 border-l-4 border-accent pl-5 text-lg font-medium italic leading-relaxed text-foreground"
+          >
+            {block.text}
+          </blockquote>
+        );
 
-    return (
-      <p key={index} className="mb-5 leading-relaxed text-muted-foreground">
-        {block}
-      </p>
-    );
+      case "paragraph":
+        return (
+          <p key={index} className="mb-5 leading-relaxed text-muted-foreground">
+            {block.text}
+          </p>
+        );
+
+      default:
+        return assertNever(block, `blog body block in "${post.slug}"`);
+    }
   });
 }
 

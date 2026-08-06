@@ -1,5 +1,5 @@
 import { SectionHeading } from "@/components/section-heading";
-import { metrics } from "@/data/site";
+import { metrics, site } from "@/data/site";
 
 function Gold({ children }: { children: React.ReactNode }) {
   return <span className="font-semibold text-accent">{children}</span>;
@@ -14,34 +14,40 @@ export function About() {
         <div className="space-y-6 leading-relaxed text-muted-foreground">
           <p>
             Hello, I&apos;m <Gold>Emmanuel Ebri</Gold>, a{" "}
-            <strong className="text-foreground">software engineer</strong>{" "}
-            based in Port Harcourt, Nigeria with <Gold>2+ years</Gold>{" "}
-            of experience building web applications end to end. I work across the whole stack, from the
-            database to the last pixel, and I&apos;m just as comfortable
-            designing an API as I am figuring out why a button feels wrong.
+            <strong className="text-foreground">full stack developer</strong>{" "}
+            based in {site.location} with <Gold>2+ years</Gold> building web and
+            mobile products end to end. I design the database schema, build and
+            secure the API, then write the interface that sits on top of it.
+            React, Next.js and React Native on the front, Node.js and Express
+            over PostgreSQL or MongoDB behind.
           </p>
           <p>
-            My work cuts across{" "}
+            I came to engineering from <Gold>public health</Gold>. I finished a
+            B.Sc. at the University of Calabar and led the National Association
+            of Public Health Students before I wrote code for a living, and the
+            platform I work on now is a telehealth product connecting patients
+            to counsellors. Knowing what a missed appointment actually costs
+            someone changes how carefully you build a booking flow.
+          </p>
+          <p>
+            Since then the work has spread across{" "}
             <strong className="text-foreground">
               healthcare, education, fintech and e-commerce
             </strong>
-            . I&apos;ve built a telemedicine platform, school management
-            portals, online stores and dashboards that deal with real money.
-            Different industries, same standard:{" "}
-            <Gold>secure, fast and easy to use</Gold>.
+            . Role-based dashboards behind JWT and email OTP. A three-app
+            monorepo sharing six internal packages across three portals, which
+            cut duplicated code by 60%. Paystack instalment payments with
+            idempotent webhooks, because a confirmation that arrives twice
+            should still only charge once. Different domains, same standard:{" "}
+            <Gold>secure, fast and obvious the first time you use it</Gold>.
           </p>
           <p>
-            I&apos;m picky about the things users never see. Readable code,
-            sensible architecture, APIs that hold up under pressure. Software
-            has a way of rewarding whoever respects the details, so I&apos;d
-            rather spend an extra hour today than hand you a problem next
-            month.
-          </p>
-          <p>
-            When I&apos;m not on client work I&apos;m usually deep in something
-            new: tightening up an old project, testing a tool I haven&apos;t
-            used before or building <Gold>mobile apps</Gold> to stretch what I
-            can do. The web moves fast. I enjoy keeping pace with it.
+            I work remote and Agile, in code review and pairing, and I put tests
+            on the things that cost money or trust when they break. I also{" "}
+            <Gold>write</Gold> about the parts that are easy to get wrong:
+            reviewing code you did not write, idempotency, error messages that
+            tell users the truth about their money. Most of that was learned by
+            shipping something that broke first.
           </p>
         </div>
 

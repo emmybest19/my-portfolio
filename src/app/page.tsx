@@ -1,6 +1,5 @@
 import { Hero } from "@/components/sections/hero";
 import { TrustedBy } from "@/components/sections/trusted-by";
-import { Testimonials } from "@/components/sections/testimonials";
 import { About } from "@/components/sections/about";
 import { Projects } from "@/components/sections/projects";
 import { Experience } from "@/components/sections/experience";
@@ -16,7 +15,6 @@ export default function HomePage() {
     <>
       <Hero />
       <TrustedBy />
-      {/* <Testimonials /> */}
       <About />
       <Projects />
       <Experience />

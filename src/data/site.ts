@@ -1,13 +1,15 @@
 export const site = {
   name: "Emmanuel Ebri",
   firstName: "Emmanuel",
-  // Neutral title shown in the hero — covers frontend, backend, and fullstack roles
-  title: "Software Engineer",
+  title: "Full Stack Developer",
   roles: ["Fullstack Engineer", "Frontend Engineer", "Backend Engineer", "Mobile Development"],
+  // The two paragraphs under the hero heading, rendered in order.
   tagline:
-    "Good software is invisible. People just notice that the page loads fast, the checkout works and nothing gets in their way. That's what I build.",
+    "I build web and mobile products end to end — the database schema, the secure API, and the interface people actually touch. Telehealth, school portals and payment systems, where a bug is somebody's appointment or somebody's money.",
+  intro:
+    "Two years of that has meant React, Next.js and React Native on the front, Node.js and Express over PostgreSQL or MongoDB behind, and JWT auth, role-based dashboards and Paystack instalment payments in between. I work remote, in code review, and I write about the parts that are easy to get wrong.",
   location: "Lagos, Nigeria",
-  email: "emmanuelonen50@gmail.com",
+  email: "hello@emmanuelebri.dev",
   whatsappNumber: "2348143782067",
   whatsappMessage: "Hi Emmanuel! I'm interested in working with you.",
   githubUsername: "emmybest19",
@@ -23,9 +25,9 @@ export const site = {
 export const calendlyReady = !site.calendlyUrl.includes("your-username");
 
 export const metrics = [
-  { value: "2+", label: "Years building production web apps" },
-  { value: "3", label: "Projects delivered end to end" },
-  { value: "4+", label: "Industries served: health, edu, fintech" },
+  { value: "2+", label: "Years shipping production software" },
+  { value: "10+", label: "Web & mobile apps delivered" },
+  { value: "4", label: "Industries: health, education, fintech, commerce" },
 ] as const;
 
 export const emailjsConfig = {
