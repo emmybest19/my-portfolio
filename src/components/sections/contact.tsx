@@ -15,9 +15,23 @@ import { calendlyReady, emailjsConfig, site } from "@/data/site";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
+/**
+ * EmailJS rejects with a plain `{ status, text }` object rather than an Error,
+ * so neither `err.message` nor `String(err)` says anything useful on its own.
+ */
+function describeSendError(err: unknown) {
+  if (typeof err === "object" && err !== null && "text" in err) {
+    const { status, text } = err as { status?: number; text?: string };
+    return `EmailJS ${status ?? "?"}: ${text ?? "no detail"}`;
+  }
+  if (err instanceof Error) return err.message;
+  return String(err);
+}
+
 export function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState<Status>("idle");
+  const [errorDetail, setErrorDetail] = useState<string | null>(null);
   const [calendlySrc, setCalendlySrc] = useState<string | null>(null);
 
   // Calendly only renders inside an iframe when its embed params are present,
@@ -32,9 +46,16 @@ export function Contact() {
     site.whatsappMessage
   )}`;
 
+  // If the send fails, hand the visitor their own draft back as a mail link
+  // rather than making them retype it.
+  const mailtoFallback = `mailto:${site.email}?subject=${encodeURIComponent(
+    form.name ? `Portfolio enquiry from ${form.name}` : "Portfolio enquiry"
+  )}&body=${encodeURIComponent(form.message)}`;
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("sending");
+    setErrorDetail(null);
     try {
       await emailjs.send(
         emailjsConfig.serviceId,
@@ -48,7 +69,10 @@ export function Contact() {
       );
       setStatus("sent");
       setForm({ name: "", email: "", message: "" });
-    } catch {
+    } catch (err) {
+      const detail = describeSendError(err);
+      console.error("[contact] send failed —", detail, err);
+      setErrorDetail(detail);
       setStatus("error");
     }
   };
@@ -147,9 +171,37 @@ export function Contact() {
                 </p>
               )}
               {status === "error" && (
-                <p className="text-sm font-medium text-destructive">
-                  Something went wrong. Please try again or reach me on WhatsApp.
-                </p>
+                <div className="space-y-2 rounded-lg border border-destructive/40 bg-destructive/5 p-4">
+                  <p className="text-sm font-medium text-destructive">
+                    Your message did not send, and it was not saved. Nothing
+                    reached me.
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    Your draft is still in the form. Send it directly instead —
+                    both links keep what you typed:
+                  </p>
+                  <div className="flex flex-wrap gap-2 pt-1">
+                    <a
+                      href={mailtoFallback}
+                      className="inline-flex items-center gap-2 rounded-lg border border-accent px-4 py-2 text-sm font-semibold text-accent transition-colors hover:bg-accent hover:text-accent-foreground"
+                    >
+                      <Mail className="h-4 w-4" /> Email it to me
+                    </a>
+                    <a
+                      href={whatsappUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2 text-sm font-semibold transition-colors hover:border-accent hover:text-accent"
+                    >
+                      <MessageCircle className="h-4 w-4" /> WhatsApp
+                    </a>
+                  </div>
+                  {errorDetail && (
+                    <p className="pt-1 font-mono text-xs break-all text-muted-foreground">
+                      {errorDetail}
+                    </p>
+                  )}
+                </div>
               )}
             </form>
 
