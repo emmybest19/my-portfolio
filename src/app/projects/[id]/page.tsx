@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowUpRight, Lightbulb, Target } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import { projects } from "@/data/projects";
 import { ProjectImage } from "@/components/project-image";
+import { ProjectCta } from "@/components/project-cta";
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -124,6 +125,8 @@ export default async function ProjectDetailPage({ params }: Props) {
             ))}
           </div>
         </div>
+
+        <ProjectCta projectTitle={project.title} />
       </div>
     </div>
   );
