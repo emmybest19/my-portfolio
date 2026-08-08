@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
-import { site } from "@/data/site";
+import { formatPhone, site } from "@/data/site";
 
 const footerLinks = [
   { label: "About", href: "/#about" },
@@ -99,13 +99,24 @@ export function Footer() {
               </li>
               <li>
                 <a
+                  href={`tel:+${site.phoneNumber}`}
+                  className="flex items-center gap-2 transition-colors hover:text-accent"
+                >
+                  <Phone className="h-4 w-4 shrink-0 text-accent" />
+                  {formatPhone(site.phoneNumber)}
+                  <span className="text-xs text-muted-foreground">(calls)</span>
+                </a>
+              </li>
+              <li>
+                <a
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 transition-colors hover:text-accent"
                 >
-                  <Phone className="h-4 w-4 shrink-0 text-accent" />
-                  +{site.whatsappNumber}
+                  <FaWhatsapp className="h-4 w-4 shrink-0 text-accent" />
+                  {formatPhone(site.whatsappNumber)}
+                  <span className="text-xs text-muted-foreground">(WhatsApp)</span>
                 </a>
               </li>
               <li className="flex items-center gap-2">

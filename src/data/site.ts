@@ -11,6 +11,8 @@ export const site = {
   location: "Lagos, Nigeria",
   email: "hello@emmanuelebri.dev",
   whatsappNumber: "2348143782067",
+  /** Voice calls only — a different line from WhatsApp. Stored in E.164 digits. */
+  phoneNumber: "2349065312182",
   whatsappMessage: "Hi Emmanuel! I'm interested in working with you.",
   githubUsername: "emmybest19",
   calendlyUrl: "https://calendly.com/emmanuelonen50/30min",
@@ -23,6 +25,12 @@ export const site = {
 
 /** True once calendlyUrl has been replaced with a real scheduling link. */
 export const calendlyReady = !site.calendlyUrl.includes("your-username");
+
+/** "2349065312182" -> "+234 906 531 2182". Falls back to a plain + prefix. */
+export const formatPhone = (msisdn: string) => {
+  const parts = msisdn.match(/^(\d{3})(\d{3})(\d{3})(\d{4})$/);
+  return parts ? `+${parts.slice(1).join(" ")}` : `+${msisdn}`;
+};
 
 export const metrics = [
   { value: "2+", label: "Years shipping production software" },
