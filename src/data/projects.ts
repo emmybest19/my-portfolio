@@ -174,7 +174,7 @@ export const projects: Project[] = [
     description:
       "A full-featured digital platform designed to combine e-learning, real-time communication, and service booking into a single seamless experience. Users can enroll in courses, join live video and voice sessions, and track learning progress through a student dashboard, while clients book consultations and manage projects through a personalized client dashboard, and administrators oversee the entire system via a centralized admin panel.",
     highlight: "Live classes, booking & admin in one app", // TODO: replace with a measured outcome
-    image: "/assets/ebrings.png",
+    image: "/assets/ebringgs.png",
     tech: [
       "React",
       "TypeScript",
