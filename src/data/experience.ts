@@ -22,17 +22,17 @@ export type ExperienceItem = {
 export const experience: ExperienceItem[] = [
   {
     id: 1,
-    title: "Frontend Developer",
-    org: "Toac Inc",
-    period: "Nov 2025 - Present",
-    type: "Contract",
-    challenge:
-      "A distributed Agile team, 8+ feature modules in flight and 30+ Figma designs that had to land pixel-accurate on every browser and screen size.",
-    process:
-      "Built production-ready components with React, TypeScript and TailwindCSS, kept design fidelity across desktop and mobile, and worked structured GitHub workflows inside two-week sprints.",
-    victory:
-      "Review-to-merge time dropped by 20% and the interfaces went out responsive, consistent and faithful to the designs.",
-    tech: ["React", "TypeScript", "TailwindCSS", "GitHub Workflows", "Agile"],
+title: "Full-stack Engineer",
+org: "Toac Inc",
+period: "Nov 2025 - Present",
+type: "Contract",
+challenge:
+  "A telehealth platform with three distinct user roles, a distributed Agile team and 8+ feature modules in flight, where every booking, message and dashboard had to work end to end across a Python backend and a browser client that stayed faithful to 30+ Figma designs.",
+process:
+  "Owned features from schema to screen: designed FastAPI endpoints with typed Pydantic models, implemented JWT auth with email OTP verification and role-scoped access, then consumed those contracts in a React and Next.js frontend written in TypeScript and styled with TailwindCSS, all shipped through structured GitHub workflows on two-week sprints.",
+victory:
+  "Shipped role-based dashboards and a full session booking flow on schedule, with a typed API contract that removed frontend and backend guesswork and cut review-to-merge time by 20%.",
+tech: ["React", "TypeScript", "FastAPI", "Python", "TailwindCSS", "PostgreSQL", "GitHub Workflows", "Agile"],
   },
   {
     id: 2,
