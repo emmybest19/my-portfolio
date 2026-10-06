@@ -1,8 +1,4 @@
-/**
- * The canonical category list. `Project.category` is typed against it, so a
- * typo ("Health tech") is a compile error rather than a project that quietly
- * gets its own filter pill and appears under nothing else.
- */
+
 export const CATEGORIES = [
   "Health Tech",
   "E-commerce",

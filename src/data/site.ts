@@ -7,7 +7,7 @@ export const site = {
   tagline:
     "I build web and mobile products end to end — the database schema, the secure API, and the interface people actually touch. Telehealth, school portals and payment systems, where a bug is somebody's appointment or somebody's money.",
   intro:
-    "Two years of that has meant React, Next.js and React Native on the front, Node.js and Express over PostgreSQL or MongoDB behind, and JWT auth, role-based dashboards and Paystack instalment payments in between. I work remote, in code review, and I write about the parts that are easy to get wrong.",
+    "Three years of that has meant React, Next.js and React Native on the front, Node.js and Express over PostgreSQL or MongoDB behind, and JWT auth, role-based dashboards and Paystack instalment payments in between. I work remote, in code review, and I write about the parts that are easy to get wrong.",
   location: "Lagos, Nigeria",
   email: "hello@emmanuelebri.dev",
   whatsappNumber: "2348143782067",
@@ -33,7 +33,7 @@ export const formatPhone = (msisdn: string) => {
 };
 
 export const metrics = [
-  { value: "2+", label: "Years shipping production software" },
+  { value: "3+", label: "Years shipping production software" },
   { value: "10+", label: "Web & mobile apps delivered" },
   { value: "4", label: "Industries: health, education, fintech, commerce" },
 ] as const;

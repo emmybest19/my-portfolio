@@ -46,13 +46,13 @@ tech: ["React", "TypeScript", "FastAPI", "Python", "TailwindCSS", "PostgreSQL", 
       "Built backend services with Node.js and PostgreSQL, implemented JWT authentication, role-based authorization and payment gateway integrations, and designed REST endpoints the frontend could rely on.",
     victory:
       "Delivered secure, reliable transaction flows and optimized backend logic and database interactions for faster responses and easier maintenance.",
-    tech: ["Node.js", "Express", "PostgreSQL", "JWT", "REST APIs", "Payment Gateways"],
+    tech: ["Node.js", "Nest.js", "Express", "PostgreSQL", "JWT", "REST APIs", "Payment Gateways"],
   },
   {
     id: 3,
     title: "Fullstack Engineer",
     org: "Upsywave Tech Company Ltd",
-    period: "Mar 2024 - Apr 2025",
+    period: "Aug 2023 - Apr 2025",
     type: "Remote",
     challenge:
       "Six web applications, one small team and real deadlines on both the frontend and the backend.",

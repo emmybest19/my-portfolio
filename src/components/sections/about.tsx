@@ -15,10 +15,10 @@ export function About() {
           <p>
             Hello, I&apos;m <Gold>Emmanuel Ebri</Gold>, a{" "}
             <strong className="text-foreground">full stack developer</strong>{" "}
-            based in {site.location} with <Gold>2+ years</Gold> building web and
+            based in {site.location} with <Gold>3+ years</Gold> building web and
             mobile products end to end. I design the database schema, build and
             secure the API, then write the interface that sits on top of it.
-            React, Next.js and React Native on the front, Node.js and Express
+            React, Next.js and React Native on the front, Node.js, Nest.js and Express
             over PostgreSQL or MongoDB behind.
           </p>
           <p>

@@ -59,6 +59,19 @@ export const skillGroups: SkillGroup[] = [
     skills: ["MongoDB", "MySQL", "PostgreSQL", "Mongoose", "Cloudinary"],
   },
   {
+    title: "CMS & WordPress",
+    skills: [
+      "WordPress",
+      "Elementor",
+      "WooCommerce",
+      "Theme Customization",
+      "Plugin Setup & Configuration",
+      "PHP",
+      "Website Migration & Hosting",
+      "SEO Basics",
+    ],
+  },
+  {
     title: "Cloud & DevOps",
     skills: [
       "AWS (EC2, S3, IAM, CloudFront)",
