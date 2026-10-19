@@ -6,7 +6,7 @@ import { Download, FileText } from "lucide-react";
 import { SectionHeading } from "@/components/section-heading";
 import { site } from "@/data/site";
 
-// To add a new CV variant (e.g. Backend, Mobile): drop the PDF in public/files,
+// To add a new CV variant (e.g. Backend): drop the PDF in public/files,
 // regenerate its page images into public/assets/resume, then add an entry here.
 const resumes = [
   {
@@ -15,9 +15,8 @@ const resumes = [
     title: "Fullstack Software Developer",
     file: "/files/Emmanuel_Ebri_FullStack_Resume.pdf",
     pages: [
-      "/assets/resume/full_1.jpg",
-      "/assets/resume/full_2.jpg",
-      "/assets/resume/full_3.jpg",
+      "/assets/resume/fullstack-1.jpg",
+      "/assets/resume/fullstack-2.jpg",
     ],
   },
   {
@@ -26,17 +25,19 @@ const resumes = [
     title: "Frontend Developer",
     file: "/files/Emmanuel_Ebri_Frontend_Resume.pdf",
     pages: [
-      "/assets/resume/frontend-page-1.png",
-      "/assets/resume/frontend-page-2.png",
+      "/assets/resume/frontend-1.jpg",
+      "/assets/resume/frontend-2.jpg",
     ],
   },
   {
-    key: "mobile",
-    label: "Mobile",
-    title: "Mobile Developer",
-    // TODO: drop the mobile CV PDF in public/files and add its page images here
-    file: "",
-    pages: [],
+    key: "backend",
+    label: "Backend",
+    title: "Backend Developer",
+    file: "/files/Emmanuel_Ebri_Backend_Resume.pdf",
+    pages: [
+      "/assets/resume/backend-1.jpg",
+      "/assets/resume/backend-2.jpg",
+    ],
   },
 ];
 
@@ -87,16 +88,13 @@ export function Resume() {
                 </div>
               </div>
 <div className="flex flex-wrap gap-2">
-                {site.resumeFiles.map((r) => (
-                  <a
-                    key={r.key}
-                    href={r.file}
-                    download
-                    className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
-                  >
-                    <Download className="h-4 w-4" /> {r.label}
-                  </a>
-                ))}
+                <a
+                  href={active.file}
+                  download
+                  className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+                >
+                  <Download className="h-4 w-4" /> Download {active.label} PDF
+                </a>
               </div>
             </div>
 
