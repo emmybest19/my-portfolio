@@ -148,7 +148,7 @@ export const projects: Project[] = [
       "React Router",
     ],
     live: "https://blinggapp.com/",
-    code: "https://github.com/emmybest19/telemedicine-app",
+code: "https://github.com/emmybest19/blinggs-web-app",
     challenge:
       "Balancing the presentation of multiple complex features (messaging, payments, crypto, and contributions) without overwhelming users or compromising clarity.",
     solution:
@@ -215,7 +215,7 @@ export const projects: Project[] = [
       "EmailJS",
     ],
     live: "https://ebri-emmanuel-portfolio.vercel.app/",
-    code: "https://github.com/emmybest19/portfolio",
+code: "https://github.com/emmybest19/my-portfolio",
     challenge:
       "A portfolio has one job, selling the developer, and most fail because they look like every other template. This one had to look distinct, load fast and stay honest about what I can actually do.",
     solution:
