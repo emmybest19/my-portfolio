@@ -13,7 +13,7 @@ const resumes = [
     key: "fullstack",
     label: "Fullstack",
     title: "Fullstack Software Developer",
-    file: "/files/Emmanuel_Ebri_Resume.pdf",
+    file: "/files/Emmanuel_Ebri_FullStack_Resume.pdf",
     pages: [
       "/assets/resume/full_1.jpg",
       "/assets/resume/full_2.jpg",
@@ -86,13 +86,18 @@ export function Resume() {
                   </p>
                 </div>
               </div>
-              <a
-                href={active.file}
-                download
-                className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
-              >
-                <Download className="h-4 w-4" /> Download
-              </a>
+<div className="flex flex-wrap gap-2">
+                {site.resumeFiles.map((r) => (
+                  <a
+                    key={r.key}
+                    href={r.file}
+                    download
+                    className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+                  >
+                    <Download className="h-4 w-4" /> {r.label}
+                  </a>
+                ))}
+              </div>
             </div>
 
             <div className="space-y-6">
