@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 import emailjs from "@emailjs/browser";
 import {
   CalendarDays,
@@ -32,15 +32,15 @@ export function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState<Status>("idle");
   const [errorDetail, setErrorDetail] = useState<string | null>(null);
-  const [calendlySrc, setCalendlySrc] = useState<string | null>(null);
 
   // Calendly only renders inside an iframe when its embed params are present,
   // and embed_domain must match the page actually hosting it.
-  useEffect(() => {
-    setCalendlySrc(
-      `${site.calendlyUrl}?embed_domain=${window.location.host}&embed_type=Inline`
-    );
-  }, []);
+  const host = useSyncExternalStore(
+    () => () => {},
+    () => window.location.host,
+    () => ""
+  );
+  const calendlySrc = host ? `${site.calendlyUrl}?embed_domain=${host}&embed_type=Inline` : null;
 
   const whatsappUrl = `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(
     site.whatsappMessage
