@@ -229,5 +229,28 @@ export const projects: Project[] = [
       "Contact form wired to EmailJS, no backend required",
     ],
   },
+  {
+    id: "everthrive",
+    title: "EverThrive",
+    category: "E-commerce",
+    shortDescription:
+      "Digital product store selling practical guides, planners and trackers for career, money, health and relationships, with instant downloads.",
+    description:
+      "Digital product store selling practical guides, planners and trackers for career, money, health and relationships, with instant downloads. Shoppers browse by life area, buy in a few clicks and get their files straight away, with no waiting and no shipping.",
+    highlight: "Instant digital downloads",
+    image: "/assets/everthrive.png",
+    tech: ["Next.js"],
+    live: "https://www.everthrive.live",
+    code: "https://github.com/emmybest19",
+    challenge:
+      "Selling digital products means the purchase has to feel instant: customers expect their guide or planner the moment they pay, across very different topics, without a confusing catalog.",
+    solution:
+      "Built the storefront in Next.js with products organised by life area (career, money, health and relationships) and a streamlined path from browsing to instant download.",
+    features: [
+      "Guides, planners and trackers organised by life area",
+      "Instant downloads after purchase",
+      "Responsive storefront built with Next.js",
+    ],
+  },
 ];
 
