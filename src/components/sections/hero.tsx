@@ -41,13 +41,16 @@ export function Hero() {
             >
               Let&apos;s Build Something
             </Link>
-            <a
-              href={site.resumeFile}
-              download
-              className="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-3 text-sm font-semibold transition-colors hover:border-accent hover:text-accent"
-            >
-              <Download className="h-4 w-4" /> Download Resume
-            </a>
+{site.resumeFiles.map((resume) => (
+              <a
+                key={resume.key}
+                href={resume.file}
+                download
+                className="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-3 text-sm font-semibold transition-colors hover:border-accent hover:text-accent"
+              >
+                <Download className="h-4 w-4" /> {resume.label} Resume
+              </a>
+            ))}
           </div>
 
           <div className="mt-8 flex items-center gap-4">
