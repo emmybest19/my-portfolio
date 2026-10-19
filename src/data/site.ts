@@ -16,7 +16,13 @@ export const site = {
   whatsappMessage: "Hi Emmanuel! I'm interested in working with you.",
   githubUsername: "emmybest19",
   calendlyUrl: "https://calendly.com/emmanuelonen50/30min",
-  resumeFile: "/files/Emmanuel Ebri _FSD_Resume.pdf", // TODO: drop your CV PDF at public/files/Emmanuel_Ebri_Resume.pdf
+    resumeFile: "/files/Emmanuel_Ebri_FullStack_Resume.pdf", // default download (Full Stack)
+  /** The three downloadable CV variants, served from public/files. */
+  resumeFiles: [
+    { key: "fullstack", label: "Full Stack", file: "/files/Emmanuel_Ebri_FullStack_Resume.pdf" },
+    { key: "frontend", label: "Frontend", file: "/files/Emmanuel_Ebri_Frontend_Resume.pdf" },
+    { key: "backend", label: "Backend", file: "/files/Emmanuel_Ebri_Backend_Resume.pdf" },
+  ],
   socials: {
     github: "https://github.com/emmybest19",
     linkedin: "https://www.linkedin.com/in/emmanuel-ebri-9183a6243/",
