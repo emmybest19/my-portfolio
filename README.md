@@ -145,8 +145,11 @@ a real file under `public/`.
 - Deployment and redirects: TODO() `docs/deployment.md`
 - Decision log: TODO() `docs/decisions.md`
 
-## License
+## Further reading
+- [Case study](CASE_STUDY.md)
+- [Trade-offs](TRADEOFFS.md)
 
-TODO(): no licence chosen and no `LICENSE` file in the repository.
+## License
+MIT
 
 © Emmanuel Ebri
