@@ -78,7 +78,8 @@ export default async function ProjectDetailPage({ params }: Props) {
           >
             Live Preview <ArrowUpRight className="h-4 w-4" />
           </a>
-          <a
+          {project.code && (
+<a
             href={project.code}
             target="_blank"
             rel="noopener noreferrer"
@@ -86,6 +87,7 @@ export default async function ProjectDetailPage({ params }: Props) {
           >
             <FaGithub className="h-4 w-4" /> Source Code
           </a>
+)}
         </div>
 
         <div className="mt-10">
