@@ -129,7 +129,8 @@ function ProjectCard({ project }: { project: Project }) {
           >
             Full Case Study
           </Link>
-          <a
+          {project.code && (
+<a
             href={project.code}
             target="_blank"
             rel="noopener noreferrer"
@@ -138,6 +139,7 @@ function ProjectCard({ project }: { project: Project }) {
           >
             <FaGithub className="h-5 w-5" />
           </a>
+)}
         </div>
       </div>
     </article>
