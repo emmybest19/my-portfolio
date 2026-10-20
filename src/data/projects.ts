@@ -53,7 +53,7 @@ export const projects: Project[] = [
       "React Hook Form",
     ],
     live: "https://toac-main-n5bt.vercel.app/",
-    code: "https://github.com/Toacintl/TOAC-_main",
+    code: "",
     challenge:
       "Managing complex state across multiple interactive components (real-time chat, video sessions, booking flows, and authentication) led to inconsistent UI updates and prop drilling as the application scaled.",
     solution:
@@ -79,7 +79,7 @@ export const projects: Project[] = [
     image: "/assets/tasteatfoods.png",
     tech: ["React", "Next.js", "TypeScript", "TailwindCSS"],
     live: "https://tasteatfoods.com/",
-    code: "https://github.com/emmybest19",
+    code: "https://github.com/emmybest19/tasteat",
     challenge:
       "An online store earns trust in seconds. The catalog, cart and checkout had to feel fast and dependable, because every glitch at the payment step is a lost sale.",
     solution:
@@ -114,7 +114,7 @@ export const projects: Project[] = [
       "bcryptjs",
     ],
     live: "https://school-portal-taupe.vercel.app/",
-    code: "https://github.com/emmybest19/student-portal-frontend",
+    code: "",
     challenge:
       "Managing strict role-based access across students, teachers, and admins without exposing sensitive academic data or breaking user experience.",
     solution:
@@ -182,7 +182,7 @@ code: "https://github.com/emmybest19/blinggs-web-app",
       "Socket.IO",
     ],
     live: "https://blinggapp.com/",
-    code: "https://github.com/emmybest19/telemedicine-app",
+    code: "",
     challenge:
       "Coordinating real-time video/voice communication, course management, and service booking within a single platform without performance issues or user confusion.",
     solution:
@@ -214,7 +214,7 @@ code: "https://github.com/emmybest19/blinggs-web-app",
       "next-themes",
       "EmailJS",
     ],
-    live: "https://ebri-emmanuel-portfolio.vercel.app/",
+    live: "https://www.emmanuelebri.dev",
 code: "https://github.com/emmybest19/my-portfolio",
     challenge:
       "A portfolio has one job, selling the developer, and most fail because they look like every other template. This one had to look distinct, load fast and stay honest about what I can actually do.",
@@ -241,7 +241,7 @@ code: "https://github.com/emmybest19/my-portfolio",
     image: "/assets/everthrive.png",
     tech: ["Next.js"],
     live: "https://www.everthrive.live",
-    code: "https://github.com/emmybest19",
+    code: "",
     challenge:
       "Selling digital products means the purchase has to feel instant: customers expect their guide or planner the moment they pay, across very different topics, without a confusing catalog.",
     solution:
